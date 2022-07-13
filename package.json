@@ -1,0 +1,26 @@
+{
+  "name": "project2-todo-app",
+  "version": "1.0.0",
+  "description": "full stack crud application ",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mmengi18/Project-2-TODO-APP.git"
+  },
+  "author": "Mahider Mengiste",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mmengi18/Project-2-TODO-APP/issues"
+  },
+  "homepage": "https://github.com/mmengi18/Project-2-TODO-APP#readme",
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "liquid-express-views": "^1.0.8",
+    "mongoose": "^6.4.4",
+    "nodemon": "^2.0.19"
+  }
+}
