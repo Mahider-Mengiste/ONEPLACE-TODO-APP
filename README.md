@@ -33,7 +33,9 @@ User stories: (`As a user.....`)
     
 WIRE FRAMES
 <img src="images/ERD.jpg">
-<img src="images/routeTable.jpg">
 <img src="images/wireframe-1.jpg">
 <img src="images/wireframe-2.jpg">
 <img src="images/wireframe-3.jpg">
+
+ROUTE TABLES
+<img src="images/routeTable.jpg">
