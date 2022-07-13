@@ -30,3 +30,10 @@ User stories: (`As a user.....`)
     - find all todo items in collection - timestamp crated
     - delete all fruits that meet criteria
     - send a success message
+    
+WIRE FRAMES
+<img src="images/ERD.jpg">
+<img src="images/routeTable.jpg">
+<img src="images/wireframe-1.jpg">
+<img src="images/wireframe-2.jpg">
+<img src="images/wireframe-3.jpg">
