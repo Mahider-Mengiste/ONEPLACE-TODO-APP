@@ -1,0 +1,9 @@
+{% layout "default-layout.liquid" %}
+
+    {% block content %}
+    <div>
+        {% for todo in todos %}
+            <p> list items from the todo_routes: {{ todo.list }}</p>
+        {% endfor %}
+    </div>
+    {% endblock %}

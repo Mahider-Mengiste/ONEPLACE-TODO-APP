@@ -9,7 +9,7 @@ mongoose.connect(process.env.DATABASE_URI,
     useUnifiedTopology: true
      })
 
-    //  check weather you are succesfully connected to mongodb database
+    //  check weather you are succesfully mongoose is connected to mongodb database
 const db = mongoose.connection
 db.once('open', _ => {
   console.log('Database connected:', process.env.DATABASE_URI)
@@ -20,7 +20,7 @@ db.on('error', err => {
 })
 
 
-
+module.exports = mongoose
 
 
 
