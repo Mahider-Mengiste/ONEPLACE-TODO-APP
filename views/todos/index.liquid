@@ -3,7 +3,9 @@
     {% block content %}
     <div>
         {% for todo in todos %}
-            <p> list items from the todo_routes: {{ todo.list }}</p>
+        <!-- <p>fruit id: {{ todo._id}}</p> -->
+        <a href="/todos/{{todo._id}}">list items from the todo_routes: {{ todo.list }}</a>
         {% endfor %}
     </div>
     {% endblock %}
+<!-- href="/todos{{todo._id}}" -->

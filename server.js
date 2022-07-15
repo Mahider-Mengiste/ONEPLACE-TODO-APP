@@ -20,7 +20,7 @@ app.use('/todos', todoRoutes)
 
 // ROUTERS  
 app.get('/', function (req, res) {
-  res.send('Hello this is the first route that is going to be read when express runs then it will go to /todos/list')
+  res.send('Hello this is the first route that is going to be read when express runs then it will go to other routes')
 })
 
 const port = process.env.PORT 
