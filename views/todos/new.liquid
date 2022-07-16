@@ -1,7 +1,22 @@
 {% layout "default-layout.liquid" %}
     {% block content %}
-    <form action="/todos" method="POST">
-        <input type="text" name="list" placeholder="add new todo list">
-        <input type="submit" value="Add new todo list">
-    </form>
+    <div class="container-fluid">
+        <form action="/todos" method="POST">
+            <fieldset>
+                <legend>Add a Todo list</legend>
+                <label class="form-label">Add todo:</label>
+                <input 
+                    class="form-control" 
+                    type="text" 
+                    name="list" 
+                    placeholder="add new todo list"
+                >
+            </fieldset>
+            <input 
+                type="submit" 
+                value="Add new todo list" 
+                class="btn btn-danger" 
+            >   
+        </form>
+    </div>
     {% endblock %}

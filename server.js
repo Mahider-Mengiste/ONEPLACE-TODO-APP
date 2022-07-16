@@ -1,4 +1,4 @@
-// require express 
+// import dependencies
 const express = require('express')
 // run liquid templating lanugage
 const app = require('liquid-express-views')(express())
@@ -7,26 +7,34 @@ const morgan = require('morgan')
 // load .env file to get enviromental variables
 const dotenv = require('dotenv').config()
 const connectdb = require('./models/connectdb');
-const todoRoutes = require('./controller/todo_routes')
 const methodOverride = require('method-override')
+const todoRoutes = require('./controller/todo_routes')
+const userRoutes = require('./controller/user_routes')
 
 
 // MIDDLEWARE
-// use this to run static pages from public folder without any aditional routes
-
-
-// app.use(methodovver)
-app.use(express.static('public'))
+// logs out request 
+app.use(morgan('tiny'))
+// overrides post and get with update and delete
 app.use(methodOverride('_method'))
-// body parser 
+// body parser
 app.use(express.urlencoded({extended: false}))
-app.use(morgan('tiny'));
+// this serves static page on the client side
+app.use(express.static('public'))
+// session middleware
+const session = require('express-session')
+const MongoStore = require('connect-mongo')
+
+
+// ROUTES
 app.use('/todos', todoRoutes)
+app.use('/users', userRoutes)
 
+// middleware to set up sessions
 
-// ROUTERS  
+// localhost:3000/ 
 app.get('/', function (req, res) {
-  res.send('Hello this is the first route that is going to be read when express runs then it will go to other routes')
+  res.send('Hello this is the first route that is going to be read when express runs then it will go to ROUTES')
 })
 
 const port = process.env.PORT 

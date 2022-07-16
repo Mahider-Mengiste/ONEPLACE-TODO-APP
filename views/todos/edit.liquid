@@ -1,10 +1,16 @@
 {% layout "default-layout.liquid" %}
     {% block content %}
-    <form action="/todos/{{todo._id}}?_method=PUT" method="POST">
-        <input type="text" name="list" placeholder=" update todo list" value="{{todo.list}}">
-        <input type="submit" value="Edit todo list">
-
-    </form>
+    <div class="container-fluid">
+        <form action="/todos/{{todo._id}}?_method=PUT" method="POST">
+            <fieldset>
+                <legend>Edit {{todo.list}} </legend>
+                <label class="form-label">List:</label>
+                <input type="text" name="list" placeholder=" update todo list" value="{{todo.list}}">
+            </fieldset>
+                <input type="submit" value="Edit todo list" class="btn btn-danger">
+    
+        </form>
+    </div>
     {% endblock %}
 
 

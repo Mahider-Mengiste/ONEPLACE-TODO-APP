@@ -4,7 +4,8 @@
   "description": "full stack crud application ",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "seed": "node models/seed.js"
   },
   "repository": {
     "type": "git",
@@ -17,8 +18,11 @@
   },
   "homepage": "https://github.com/mmengi18/Project-2-TODO-APP#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "connect-mongo": "^4.6.0",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
+    "express-session": "^1.17.3",
     "liquid-express-views": "^1.0.8",
     "method": "^2.0.0",
     "method-override": "^3.0.0",

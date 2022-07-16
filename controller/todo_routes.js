@@ -105,35 +105,5 @@ router.get('/:id', (req, res) => {
 })
 
 
-// GET - route to insert inital items to the database that is used for testing
-// localhost://todos/list
-router.get('/list', (req, res) => {
-    // arbitary starting data 
-    const startLists = [
-        {list: "go to gym at 6:00 pm"},
-        {list: "call Tom"},
-        {list: "meet with Sara"},
-        {list: "dont forget to invite Alex"},
-        {list: "take a walk"},
-    ]
-
-    // first we have to delete if we have any lists
-    // then insert a new list
-        // then if the promised data is returned succesfully we will send a json response to view 
-        // if not then catch the error
-    Todo.deleteMany({})
-        // insert data
-        .then(() => {
-            Todo.create(startLists)
-            // return this data as json to view
-            .then(data => {
-            res.json(data)
-            })
-        .catch(err => console.error(err))
-        .catch(console.error)
-        })
-})
-
-
 
 module.exports = router

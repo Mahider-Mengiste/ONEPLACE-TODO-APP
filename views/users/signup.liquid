@@ -1,0 +1,43 @@
+{% layout "default-layout.liquid" %}
+{% block content %}
+    <div class="container-fluid">
+        <form action="/user/signup" method="POST">
+            <Fieldset>
+                <legend>New User</legend>
+                <label class="form-label">username:</label>
+                <input 
+                    class="form-control" 
+                    type="text" 
+                    name="username"  
+                    placeholder="enter username"
+                >
+                <label class="form-label">password: </label>
+                <input 
+                    class="form-control" 
+                    type="text" 
+                    name="password"  
+                    placeholder="enter password"
+                >
+                <label class="form-label">email: </label>
+                <input 
+                    class="form-control" 
+                    type="text" 
+                    name="email"  
+                    placeholder="enter email"
+                >
+                <label class="form-label">phone: </label>
+                <input 
+                    class="form-control" 
+                    type="text" 
+                    name="phone"  
+                    placeholder="enter phone"
+                >
+            </Fieldset>
+            <input 
+                type="submit" 
+                value="Create account" 
+                class="btn btn-success btn-danger" 
+            >   
+        </form>
+    </div>
+{% endblock %}

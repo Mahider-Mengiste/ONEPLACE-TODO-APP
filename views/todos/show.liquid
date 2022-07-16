@@ -1,9 +1,15 @@
 {% layout "default-layout.liquid" %}
 {% block content %}
-        <h1>list items: {{todo.list}}</h1>
-        <a href="/todos/{{todo._id}}/edit">Edit Fruit</a>
-        <!-- post mehtod is going to be overriden by DELETE since the browser dosent support delete -->
-        <form action="/todos/{{todo._id}}?_method=DELETE" method="POST">
-        <input type="submit" value="DELETE">
-        </form>
+        <div class="container-fluid">
+                <article>
+                        <h2>{{todo.list}}</h2>
+                        <div class="btn-group">
+                                <a href="/todos/{{todo._id}}/edit" class="btn btn-danger custom-btn">Edit Todo</a>
+                                <!-- post mehtod is going to be overriden by DELETE since the browser dosen't support delete -->
+                                <form action="/todos/{{todo._id}}?_method=DELETE" method="POST">
+                                        <input type="submit" value="Delete" class="btn btn-danger custom-btn">
+                                </form>
+                        </div>
+                </article>
+        </div>
 {% endblock %}

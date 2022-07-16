@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Montserrat:wght@600&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Roboto:ital,wght@0,400;0,500;1,500&family=Work+Sans:ital,wght@0,200;0,300;1,200;1,300&display=swap');
 body {
     background-color: #fcffff;
-
 }
 .display-6 {
     text-align: center;
@@ -11,7 +10,6 @@ body {
 }
 
 .btn {
-    
     background-color:crimson;
     width: 256px;
     height: 70px;
@@ -20,4 +18,19 @@ body {
     color: #fcffff;
     padding-top: 19px;
     font-family: 'Open Sans', sans-serif;
+}
+
+.new-link {
+    text-decoration: none;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+}
+
+.btn-danger {
+    background-color: #000;
+    margin-top: 10px;
+}
+
+legend {
+    font-family: 'Montserrat', sans-serif;
 }
