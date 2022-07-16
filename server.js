@@ -8,15 +8,21 @@ const morgan = require('morgan')
 const dotenv = require('dotenv').config()
 const connectdb = require('./models/connectdb');
 const todoRoutes = require('./controller/todo_routes')
+const methodOverride = require('method-override')
 
 
 // MIDDLEWARE
 // use this to run static pages from public folder without any aditional routes
+
+
+// app.use(methodovver)
 app.use(express.static('public'))
+app.use(methodOverride('_method'))
 // body parser 
 app.use(express.urlencoded({extended: false}))
 app.use(morgan('tiny'));
 app.use('/todos', todoRoutes)
+
 
 // ROUTERS  
 app.get('/', function (req, res) {

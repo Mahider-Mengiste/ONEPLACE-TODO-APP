@@ -35,6 +35,7 @@ router.get('/:id/edit', (req, res) => {
       // then return the promised data by passing it as todo
         .then(todo => {
             // render the promised data by passing it inside show.liquid
+            console.log(todo)
             res.render('todos/edit', {todo})
         })
         .catch(err => {
@@ -44,13 +45,35 @@ router.get('/:id/edit', (req, res) => {
 })
 
 // PUT - route to update changes inside a document
+// localhost:3000/todos/:id
+router.put('/:id', (req, res) => {
+    const todoID = req.params.id
+    Todo.findByIdAndUpdate(todoID, req.body, {new: true})
+    .then(todo => {
+        // redirect to the show route
+        console.log(todo)
+        res.redirect(`/todos/${todo._id}`)
+    })
+    .catch(err => console.error(err))
+    .catch(console.error)
+})
 
-
-
+// DELETE - route
+router.delete('/:id', (req, res) => {
+    const deleteID = req.params.id
+    Todo.findOneAndDelete(deleteID, req.body)
+    .then(todo => {
+        // redirect to the show route
+        console.log(todo)
+        res.redirect('/todos')
+    })
+    .catch(err => console.error(err))
+    .catch(console.error)
+})
 
 // GET -  route to display all of the todolists
 // localhost:3000/todos/
-// HOME ROUTE
+// HOME ROUTE/index page
 router .get('/', (req, res) => {
 // find all todo lists
 Todo.find({})
@@ -65,7 +88,7 @@ Todo.find({})
 })
 
 // localhost:3000/todos/:id 
-// GET - route shows a specific document
+// GET - route shows a specific document/show page
 router.get('/:id', (req, res) => {
     // get an id from the req
     const todoID = req.params.id

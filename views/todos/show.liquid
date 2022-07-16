@@ -1,9 +1,9 @@
 {% layout "default-layout.liquid" %}
 {% block content %}
-        <div>
-
-                <p> list items from the todo_routes: {{ todo.list }}</p>
-                <a href="/todos/{{todo._id}}/edit">Edit Fruit</a>
-
-        </div>
+        <h1>list items: {{todo.list}}</h1>
+        <a href="/todos/{{todo._id}}/edit">Edit Fruit</a>
+        <!-- post mehtod is going to be overriden by DELETE since the browser dosent support delete -->
+        <form action="/todos/{{todo._id}}?_method=DELETE" method="POST">
+        <input type="submit" value="DELETE">
+        </form>
 {% endblock %}
