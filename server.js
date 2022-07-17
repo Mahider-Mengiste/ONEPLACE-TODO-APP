@@ -25,6 +25,17 @@ app.use(express.static('public'))
 const session = require('express-session')
 const MongoStore = require('connect-mongo')
 
+// session middleware
+app.use(
+	session({
+		secret: process.env.SECRET,
+		store: MongoStore.create({
+		mongoUrl: process.env.DATABASE_URI
+		}),
+		saveUninitialized: true,
+		resave: false
+	})
+)
 
 // ROUTES
 app.use('/todos', todoRoutes)
