@@ -15,7 +15,6 @@ const mongoose = require('./connectdb')
         password: {
             type: String,
             required: true,
-            unique: true
         },
 
         email: {

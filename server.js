@@ -34,7 +34,8 @@ app.use('/users', userRoutes)
 
 // localhost:3000/ 
 app.get('/', function (req, res) {
-  res.send('Hello this is the first route that is going to be read when express runs then it will go to ROUTES')
+  // res.send('Hello this is the first route that is going to be read when express runs then it will go to ROUTES')
+  res.redirect('/todos')
 })
 
 const port = process.env.PORT 
