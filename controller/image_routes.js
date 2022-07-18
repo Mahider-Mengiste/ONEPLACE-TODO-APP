@@ -38,7 +38,6 @@ router.post('/add',upload, (req, res) => {
             res.json({message: err.message, type: 'danger'})
         } else {
             req.session.message = {
-                type: 'success',
                 message: 'Image added succesfully'
             }
             res.redirect('/images/add');

@@ -2,6 +2,13 @@
     {% block content %}
     <div class="container-fluid">
         <div class="card-body p-4">
+            {% if  message.message == "Image added succesfully" %}
+                <div class="alert  alert-success alert-dismissible fade show" role="alert">
+                    Image added succesfully!
+                    <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="close"></button>
+                </div>
+            {% endif %}
+            <!-- <p>{{"hello"}}</p> -->
             <form action="/images/add" method="POST" enctype="multipart/form-data" id="add-form">
                 <legend>Image upload</legend>
                 <div class="mb-3">
