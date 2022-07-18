@@ -1,0 +1,17 @@
+{% layout "default-layout.liquid" %}
+    {% block content %}
+    <div class="container-fluid">
+        <div class="card-body p-4">
+            <form action="/images/add" method="POST" enctype="multipart/form-data" id="add-form">
+                <legend>Image upload</legend>
+                <div class="mb-3">
+                    <label for="image" class="form-label">Select Image</label>
+                    <input class="form-control form-control-lg" type="file" name="image" required />
+                </div>
+                <div class="mb-3 d-grid">
+                    <input type="submit" name ="submit" value="upload image" class="btn btn-danger">
+                </div>
+            </form>
+        </div>
+    </div>
+    {% endblock %}

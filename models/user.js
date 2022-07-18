@@ -9,7 +9,7 @@ const mongoose = require('./connectdb')
         username: {
             type: String,
             required: true,
-            unique: true
+            unique: true,
         },
 
         password: {
@@ -20,14 +20,14 @@ const mongoose = require('./connectdb')
         email: {
             type: String,
             required: true,
-            unique: true
+            unique: true,
         },
 
         phone: {
             type: String,
             required: true,
-            unique: true
-        }
+            unique: true,
+        },
     })
 
 

@@ -10,6 +10,7 @@ const connectdb = require('./models/connectdb');
 const methodOverride = require('method-override')
 const todoRoutes = require('./controller/todo_routes')
 const userRoutes = require('./controller/user_routes')
+const imageRoutes = require('./controller/image_routes')
 
 
 // MIDDLEWARE
@@ -21,9 +22,12 @@ app.use(methodOverride('_method'))
 app.use(express.urlencoded({extended: false}))
 // this serves static page on the client side
 app.use(express.static('public'))
+// app.use(express.static(__dirname));
+
 // session middleware
 const session = require('express-session')
-const MongoStore = require('connect-mongo')
+const MongoStore = require('connect-mongo');
+const res = require('express/lib/response');
 
 // session middleware
 app.use(
@@ -35,11 +39,19 @@ app.use(
 		saveUninitialized: true,
 		resave: false
 	})
-)
+);
+
+app.use((req, res, next) => {
+	res.locals.message = req.session.message;
+	delete req.session.message;
+	next();
+})
+
 
 // ROUTES
 app.use('/todos', todoRoutes)
 app.use('/users', userRoutes)
+app.use('/images', imageRoutes)
 
 // middleware to set up sessions
 

@@ -52,7 +52,7 @@ router.put('/:id', (req, res) => {
     .then(todo => {
         // redirect to the show route
         console.log(todo)
-        res.redirect(`/todos`)
+        res.redirect(`/todos/${todo._id}`)
     })
     .catch(err => console.error(err))
     .catch(console.error)
