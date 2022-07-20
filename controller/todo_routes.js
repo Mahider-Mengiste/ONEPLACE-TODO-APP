@@ -1,90 +1,91 @@
-const express = require('express')
+// Import Dependencies
 const { append } = require('express/lib/response')
-const router = express.Router()
-// import Todo model form models directory
 const Todo = require('../models/todo')
+const express = require('express')
+const router = express.Router()
 
-// GET - route to display a form to the client side
-    // this will allow users to pass in a request
+// GET - route 
 // localhost:3000/todos/new
 router.get('/new', (req, res) => {
+    // render new.liquid file to show the form
     res.render('todos/new')
 })
 
-// POST - route to create a document in the database
+// POST - route
 // localhost:3000/todos/
 router.post('/', (req,res) => {
     // go to the database and post the values that came inside the body to the collection
     Todo.create(req.body)
-    // then assign the promised return as todos and console log it to see if is successfuly created
-    .then(todos => {
-        console.log(todos)
-        res.redirect('/todos')
-    })
-    .catch(err => console.error(err))
-    .catch(console.error)
+    // then assign the promised data as todos 
+        .then(todos => {
+            // redirect to the home page
+            res.redirect('/todos')
+        })
+        .catch(err => console.error(err))
+        .catch(console.error)
 })
 
-
-// GET - route to display an update form
+// GET - route 
 // localhost:3000/todos/:id/edit
 router.get('/:id/edit', (req, res) => {
-     // get an id from the req
+     // get an id from the request
     const todoID = req.params.id
+    // find to do by an ID
     Todo.findById(todoID)
-      // then return the promised data by passing it as todo
+        // then return the promised data by passing it as todo
         .then(todo => {
-            // render the promised data by passing it inside show.liquid
-            console.log(todo)
+            // render the promised data by displaying it on show.liquid page
             res.render('todos/edit', {todo})
         })
         .catch(err => {
             res.json(err)
         })
-
 })
 
-// PUT - route to update changes inside a document
+// PUT - route 
 // localhost:3000/todos/:id
 router.put('/:id', (req, res) => {
+    // obtain the id from the request and store it as todoID
     const todoID = req.params.id
+    // find the todo by id and update it
     Todo.findByIdAndUpdate(todoID, req.body, {new: true})
-    .then(todo => {
-        // redirect to the show route
-        console.log(todo)
-        res.redirect(`/todos/${todo._id}`)
-    })
-    .catch(err => console.error(err))
-    .catch(console.error)
+        .then(todo => {
+            // redirect to the show route
+            res.redirect(`/todos/${todo._id}`)
+        })
+        .catch(err => console.error(err))
+        .catch(console.error)
 })
 
 // DELETE - route
 router.delete('/:id', (req, res) => {
+    // obtain the id from the request and store it as deleteID
     const deleteID = req.params.id
+    // find the to by its id and delete it
     Todo.findOneAndDelete(deleteID, req.body)
-    .then(todo => {
-        // redirect to the show route
-        console.log(todo)
-        res.redirect('/todos')
-    })
-    .catch(err => console.error(err))
-    .catch(console.error)
+        .then(todo => {
+            // redirect to the show route
+            console.log(todo)
+            res.redirect('/todos')
+        })
+        .catch(err => console.error(err))
+        .catch(console.error)
 })
 
-// GET -  route to display all of the todolists
+// GET -  route 
 // localhost:3000/todos/
-// HOME ROUTE/index page
+// index page
 router .get('/', (req, res) => {
-// find all todo lists
-Todo.find({})
-// then pass the promised data inside then as todos
-.then(todos => {
-    // then render it by passing the promised data into index.liquid file
-    res.render('todos/index', {todos})
-})
-.catch(err => {
-    res.json(err)
-})
+    // find all todo lists
+    Todo.find({})
+        // then pass the promised data inside then as todos
+        .then(todos => {
+            // then render it by passing the promised data into index.liquid file
+            res.render('todos/index', {todos})
+        })
+        .catch(err => {
+            res.json(err)
+        })
 })
 
 // localhost:3000/todos/:id 
@@ -94,16 +95,14 @@ router.get('/:id', (req, res) => {
     const todoID = req.params.id
     // find a document with that specfic id 
     Todo.findById(todoID)
-    // then return the promised data by passing it as todos
-    .then(todo => {
-        // render the promised data by passing it inside show.liquid 
-        res.render('todos/show', {todo})
-    })
-    .catch(err => {
-        res.json(err)
-    })
+        // then return the promised data by passing it as todos
+        .then(todo => {
+            // render the promised data by passing it inside show.liquid 
+            res.render('todos/show', {todo})
+        })
+        .catch(err => {
+            res.json(err)
+        })
 })
-
-
 
 module.exports = router

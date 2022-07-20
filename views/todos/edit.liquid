@@ -1,21 +1,35 @@
 {% layout "default-layout.liquid" %}
-    {% block content %}
+{% block content %}
+    <!-- bootstrap fluid-container section -->
     <div class="container-fluid">
+        <!-- form section -->
         <form action="/todos/{{todo._id}}?_method=PUT" method="POST">
             <fieldset>
-                <legend>Edit {{todo.list}} </legend>
+                <legend>Edit {{todo.list}}</legend>
                 <label class="form-label">List:</label>
-                <input type="text" name="list" placeholder=" update todo list" value="{{todo.list}}">
+                <input 
+                    type="text" 
+                    name="list" 
+                    placeholder=" update todo list" 
+                    value="{{todo.list}}"
+                >
             </fieldset>
-                <input type="submit" value="Edit todo list" class="btn btn-danger">
-    
+            <input 
+                type="submit" 
+                value="Edit todo list" 
+                class="btn btn-danger"
+            >
         </form>
+        <!-- end of form section -->
     </div>
-     <style>
-        
+    <!-- end of bootstrap fluid-container section -->
+
+
+    <!-- css style section-->
+    <style>
         @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Montserrat:wght@600&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Roboto:ital,wght@0,400;0,500;1,500&family=Work+Sans:ital,wght@0,200;0,300;1,200;1,300&display=swap');
 
-    nav {
+        nav {
             height: 65px;
             font-family: 'Open Sans', sans-serif;
         }
@@ -37,7 +51,8 @@
         .btn {
             margin-top: 15px;
         } 
-       </style>
-    {% endblock %}
+    </style>
+    <!-- end of css style section-->
+{% endblock %}
 
 

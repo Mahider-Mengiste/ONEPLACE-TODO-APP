@@ -1,16 +1,46 @@
-
 {% layout "default-layout.liquid" %}
-
-    {% block content %}
+{% block content %}
+    <!-- todo list view container -->
     <div>
         <h2 class="display-6">All Todo Lists</h2>
         <div class="row">
-
             {% for todo in todos %}
-                            <!-- <p>fruit id: {{ todo._id}}</p> -->
-                <a href="/todos/{{todo._id}}" class="btn btn-info">{{ todo.list }}</a>
+                <a 
+                    href="/todos/{{todo._id}}" 
+                    class="btn btn-info">
+                    {{ todo.list }}
+                </a>
             {% endfor %}
         </div>
     </div>
-    {% endblock %}
-<!-- href="/todos{{todo._id}}" -->
+    <!-- end of todo list view container -->
+
+    <!-- css style section-->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Montserrat:wght@600&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Roboto:ital,wght@0,400;0,500;1,500&family=Work+Sans:ital,wght@0,200;0,300;1,200;1,300&display=swap');
+
+        nav {
+            height: 65px;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .navbar-brand {
+            color: bisque;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+        }
+
+        #navbarNav .new-link,.nav-link {
+            margin: 10px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 18px;
+            text-decoration: none;
+            color: rgb(220, 245, 230);
+        }
+
+        .btn {
+            margin-top: 15px;
+        } 
+    </style>
+    <!-- end of css style section-->
+{% endblock %}

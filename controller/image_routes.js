@@ -1,12 +1,12 @@
-// import dependencies
-const express = require('express')
+// Import Dependencies
 const { append } = require('express/lib/response')
-const router = express.Router()
-// import Image model form models directory
 const Image = require('../models/image')
+const express = require('express')
 const multer = require('multer')
+const router = express.Router()
 
-
+// GET - route
+// localhost:3000/images/add
 router.get('/add', (req, res) => {
     res.render('images/add')
 })
@@ -22,17 +22,19 @@ const storage = multer.diskStorage({
     },
 });
 
+// multer middleware
 const upload = multer({ 
     storage: storage,
 }).single("image")
 
-
-// POST - route to post the images to the database
+// POST - route 
 // localhost:3000/users/add
 router.post('/add',upload, (req, res) => {
+    // store the newly uploaded file inside image
     const image = new Image({
     image: req.file.filename,
     });
+    // save the image inside the database
     image.save((err) => {
         if(err){
             res.json({message: err.message, type: 'danger'})
@@ -41,12 +43,8 @@ router.post('/add',upload, (req, res) => {
                 message: 'Image added succesfully'
             }
             res.redirect('/images/add');
-            // res.redirect('/');
         }
     });
 }) 
 
-
-
-// export router
 module.exports = router

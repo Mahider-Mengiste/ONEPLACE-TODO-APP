@@ -1,56 +1,71 @@
 {% layout "default-layout.liquid" %}
 {% block content %}
-        <div class="container-fluid">
-                <article>
-                        <h2>{{todo.list}}</h2>
-                        <div class="btn-group">
-                                <a href="/todos/{{todo._id}}/edit" class="btn btn-danger custom-btn">Edit Todo</a>
-                                <!-- post mehtod is going to be overriden by DELETE since the browser dosen't support delete -->
-                                <form action="/todos/{{todo._id}}?_method=DELETE" method="POST">
-                                        <input type="submit" value="Delete" class="btn btn-danger custom-btn">
-                                </form>
-                        </div>
-                </article>
-                <div class="col-md-6">
-                <form action="/comments/{{todo._id}}" method="POST">
-                <fieldset>
-                        <legend>Add comment</legend>
-                        <label class="form-label">Comment:</label>
-                        <input 
-                                type="text" 
-                                class="form-control" 
-                                name="note" 
-                                placeholder="Enter comment here"
-                        />
-                </fieldset>
+    <!-- bootstrap fluid container section -->
+    <div class="container-fluid">
+        <!-- article section -->
+        <article>
+            <h2>{{todo.list}}</h2>
+            <div class="btn-group">
+                <a 
+                        href="/todos/{{todo._id}}/edit" 
+                        class="btn btn-danger custom-btn">
+                        Edit Todo
+                </a>
+                <!--form section  -->
+                <form action="/todos/{{todo._id}}?_method=DELETE" method="POST">
                         <input 
                                 type="submit" 
-                                class="btn btn-success" 
-                                value="Add comment" 
+                                value="Delete" 
+                                class="btn btn-danger custom-btn"
                         />
                 </form>
-                </div>
-                {% if todo.comments.length > 0 %}
-                <div class="container-sm justify-content-center">
-                        <div class="col-md-8 col-lg-6" >
-                        {% for comment in todo.comments %}
-                        {% render '../comment.liquid' comment: comment, userId: userId, todo: todo, username: username%}
-                        {% endfor %}
-                        </div>
-                </div>
-                {% endif %}
+                <!--end of form section  -->
+            </div>
+        </article>
+        <!-- end of section -->
+
+        <!-- add comment section -->
+        <div class="col-md-6">
+            <form action="/comments/{{todo._id}}" method="POST">
+            <fieldset>
+                <legend>Add comment</legend>
+                <label class="form-label">Comment:</label>
+                <input 
+                    type="text" 
+                    class="form-control" 
+                    name="note" 
+                    placeholder="Enter comment here"
+                />
+            </fieldset>
+            <input 
+                type="submit" 
+                class="btn btn-success" 
+                value="Add comment" 
+            />
+            </form>
         </div>
+        <!-- end of add comment section -->
 
+        <!-- show comment section -->
+        {% if todo.comments.length > 0 %}
+        <div class="container-sm justify-content-center">
+            <div class="col-md-8 col-lg-6" >
+                {% for comment in todo.comments %}
+                {% render '../comment.liquid' comment: comment, userId: userId, todo: todo, username: username %}
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+        <!-- end of show comment section -->
+    </div>
 
-
-
-        <style>
-        
+    <!-- style css -->
+    <style>
         @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Montserrat:wght@600&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Roboto:ital,wght@0,400;0,500;1,500&family=Work+Sans:ital,wght@0,200;0,300;1,200;1,300&display=swap');
 
         nav {
-                height: 65px;
-                font-family: 'Open Sans', sans-serif;
+            height: 65px;
+            font-family: 'Open Sans', sans-serif;
         }
 
         .navbar-brand {
@@ -68,7 +83,8 @@
         }
 
         .btn {
-            margin-top: 15px;
+            margin-top: 15px;       
         } 
-       </style>
+    </style>
+    <!-- end of style css -->
 {% endblock %}

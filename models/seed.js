@@ -1,6 +1,6 @@
+// Import Dependencies
 const mongoose = require('./connectdb')
 const Todo = require('./todo')
-// store bd conntection inside a variable
 
 const db = mongoose.connection
 
@@ -15,8 +15,8 @@ db.on('open', () => {
         {list: "take a walk"},
     ]
 
-      // first we have to delete if we have any lists
-        Todo.remove({})
+    // first we have to delete if we have any lists
+    Todo.remove({})
         // then if the data is deleted successfully 
         .then(deletedtodos => {
             console.log(deletedtodos)
