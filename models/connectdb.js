@@ -1,23 +1,21 @@
 // require dotenv to load .env file and get enviromental variable DATABASE_URI 
 const dotenv = require('dotenv').config()
-// run mongoose
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
-// connect mongoose to mongodb database/room
-mongoose.connect(process.env.DATABASE_URI, 
-    { useNewUrlParser: true,
-    useUnifiedTopology: true
-     })
+// Fire off the connection to Mongo DB
+mongoose.connect(process.env.MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
 
-    //  check weather you are succesfully mongoose is connected to mongodb database
-const db = mongoose.connection
-db.once('open', _ => {
-  console.log('Database connected:', process.env.DATABASE_URI)
-})
 
-db.on('error', err => {
-  console.error('connection error:', err)
-})
+mongoose.connection.on('connected', () => {
+  console.log(`Mongoose connected to ${mongoose.connection.host}:${mongoose.connection.port}`);
+});
+
+mongoose.connection.on("error", (err) => {
+  console.log("Could not connect to MongoDB!", err);
+});
 
 
 module.exports = mongoose

@@ -35,7 +35,7 @@ app.use(
 	session({
 		secret: process.env.SECRET,
 		store: MongoStore.create({
-		mongoUrl: process.env.DATABASE_URI
+		mongoUrl: process.env.MONGODB_URI
 		}),
 		saveUninitialized: true,
 		resave: false
@@ -63,7 +63,4 @@ app.get('/', function (req, res) {
   res.redirect('/todos')
 })
 
-const port = process.env.PORT 
-app.listen(port, () => {
-    console.log(`the server is running on port ${port}.`)
-})
+app.listen(process.env.PORT || 3000)
