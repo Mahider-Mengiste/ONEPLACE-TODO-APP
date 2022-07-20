@@ -1,37 +1,44 @@
-@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Montserrat:wght@600&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Roboto:ital,wght@0,400;0,500;1,500&family=Work+Sans:ital,wght@0,200;0,300;1,200;1,300&display=swap');
-body {
-    background-color: #fcffff;
-}
-.display-6 {
-    text-align: center;
-    margin-top: 15px;
-    margin-bottom: 10px;
-    font-family: 'Montserrat', sans-serif;
-}
+    @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Montserrat:wght@600&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Roboto:ital,wght@0,400;0,500;1,500&family=Work+Sans:ital,wght@0,200;0,300;1,200;1,300&display=swap');
 
-.btn {
-    background-color:crimson;
-    width: 256px;
-    height: 70px;
-    margin-bottom: 10px;
-    margin-left: 10px;
-    color: #fcffff;
-    padding-top: 19px;
-    font-family: 'Open Sans', sans-serif;
-}
+    body {
+        background-color: #fcffff;
+    }
 
-.new-link {
-    text-decoration: none;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 18px;
-}
+    nav {
+        height: 65px;
+        font-family: 'Open Sans', sans-serif;
+    }
 
-.btn-danger {
-    background-color: #000;
-    margin-top: 10px;
-}
+    .navbar-brand {
+        color: bisque;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 24px;
+    }
 
-legend {
-    font-family: 'Montserrat', sans-serif;
-}
+    .display-6 {
+        text-align:center;
+        margin-top: 15px;
+        margin-bottom: 10px;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    .btn {
+        background-color:rgb(249, 174, 133);
+        width: 256px;
+        height: 80px;
+        margin-bottom: 10px;
+        margin-left: 10px;
+        color: #fcffff;
+        padding-top: 19px;
+        font-family: 'Open Sans', sans-serif;
+        box-shadow: 5px 10px;
+    }
+
+    #navbarNav .new-link,.nav-link {
+        margin: 10px;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 18px;
+        text-decoration: none;
+        color: rgb(220, 245, 230);
+    }
 

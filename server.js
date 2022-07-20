@@ -11,6 +11,7 @@ const methodOverride = require('method-override')
 const todoRoutes = require('./controller/todo_routes')
 const userRoutes = require('./controller/user_routes')
 const imageRoutes = require('./controller/image_routes')
+const commentRoutes = require('./controller/comment_routes')
 
 
 // MIDDLEWARE
@@ -52,6 +53,7 @@ app.use((req, res, next) => {
 app.use('/todos', todoRoutes)
 app.use('/users', userRoutes)
 app.use('/images', imageRoutes)
+app.use('/comments', commentRoutes)
 
 // middleware to set up sessions
 
