@@ -1,30 +1,16 @@
-// Import Dependencies
-const mongoose = require('./connection')
-const commentSchema = require('./comment')
+const mongoose = require('./connectdb')
 
-// construct Schema and model from mongoose
-const { Schema, model } = mongoose
+const commentSchema = new mongoose.Schema({
+    note: {
+        type: String,
+        required: true
+    },
+    author: {
+        type: mongoose.Schema.Types.ObjectId, 
+        ref: 'User' 
+    }
+}, {
+    timestamps: true
+})
 
-// create a schema
-const todoSchema = new Schema (
-	{
-		name: String,
-		color: String,
-		readyToEat: Boolean,
-		owner: {
-			type: Schema.Types.ObjectId, 
-			ref: 'User', 
-		},
-		// a todolist can have many comments
-		comments: [commentSchema] 
-	},
-
-	{
-		timestamps: true,
-	}
-)
-
-// create a model
-const Todo = model('Todo', todoSchema)
-
-module.exports = Todo
+module.exports = commentSchema

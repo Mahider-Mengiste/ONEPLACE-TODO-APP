@@ -12,6 +12,7 @@ router.post('/:todoId', (req, res) => {
     // obtain userId from the request and store it inside author object
     req.body.author = req.body.userId
     // find todoId from the database
+
     Todo.findById(todoId)
         // store the promised returned data as todo and pass it to .then function 
         .then(todo => {

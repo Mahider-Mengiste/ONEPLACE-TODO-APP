@@ -28,19 +28,19 @@
         <div class="col-md-6">
             <form action="/comments/{{todo._id}}" method="POST">
             <fieldset>
-                <legend>Add comment</legend>
-                <label class="form-label">Comment:</label>
+                <legend>Add description</legend>
+                <label class="form-label">Description:</label>
                 <input 
                     type="text" 
                     class="form-control" 
                     name="note" 
-                    placeholder="Enter comment here"
+                    placeholder="Enter description here"
                 />
             </fieldset>
             <input 
                 type="submit" 
-                class="btn btn-success" 
-                value="Add comment" 
+                class="btn btn-danger" 
+                value="Add btn-description" 
             />
             </form>
         </div>
@@ -48,7 +48,7 @@
 
         <!-- show comment section -->
         {% if todo.comments.length > 0 %}
-        <div class="container-sm justify-content-center">
+        <div class="container-fluid justify-content-center">
             <div class="col-md-8 col-lg-6" >
                 {% for comment in todo.comments %}
                 {% render '../comment.liquid' comment: comment, userId: userId, todo: todo, username: username %}
@@ -85,6 +85,10 @@
         .btn {
             margin-top: 15px;       
         } 
+
+        .col-md-8 {
+            margin-top: 20px;
+        }
     </style>
     <!-- end of style css -->
 {% endblock %}

@@ -1,20 +1,15 @@
 {% block content %}
-    <!-- card container -->
-    <div class="card md-4 shadow">
-        <div class="card-body">
-            <p>{{ comment.note }}</p>
-            <div class="d-flex justify-content-between">
-                <small>author: {{ username }}</small>
-                <form 
-                    action="/comments/delete/{{todo._id}}/{{comment._id}}?_method=DELETE" 
-                    method="POST">
-                    <input 
-                        type="submit" 
-                        value="X" 
-                    />
-                </form>
-            </div>
+
+<div class="card md-4 shadow">
+    <div class="card-body">
+        <p>{{ comment.note }}</p>
+        <div class="d-flex justify-content-between">
+            <small>author: {{ username }}</small>
+            <form action="/comments/delete/{{todo._id}}/{{comment._id}}?_method=DELETE" method="POST">
+                <input type="submit" value="X" />
+            </form>
         </div>
     </div>
-    <!-- end of card container -->
-{% endblock %
+</div>
+
+{% endblock %}
