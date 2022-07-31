@@ -48,7 +48,7 @@ User stories: (`As a user.....`)
 
 ## WIRE FRAMES
 <img src="images/ERD.jpg" height="500px">
-<img src="images/wireframe-1.jpg" height="500px">
+<img src="images/wireframe-1.jpg">
 <img src="images/wireframe-2.jpg" height="500px">
 <img src="images/wireframe-3.jpg" height="500px"> 
 
