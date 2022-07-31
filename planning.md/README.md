@@ -14,7 +14,7 @@ User stories: (`As a user.....`)
 - view single todo item
     - inside the todo collection find one document with an id or name 
     - return/show the returned todo items
--Update/Post single todo item 
+-Update/Post single todo item Markdown Preview 
     - find a todo item with an id /name
     - when found update that single item
     -  a redirect route to return/ show the updated item 
